@@ -1,0 +1,29 @@
+{
+  "name": "babyshower",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "cf": "npm run build && wrangler pages dev",
+    "cf:only": "wrangler pages dev",
+    "deploy": "vite build && wrangler pages deploy dist --project-name babyshower",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.7",
+    "vitest": "^3.2.7",
+    "wrangler": "^4.110.0"
+  }
+}

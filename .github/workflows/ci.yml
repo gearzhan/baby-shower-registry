@@ -1,0 +1,40 @@
+# CI：每次 push / PR 都构建 + 跑单测，并扫一遍提交历史里有没有泄露的密钥。
+# 不部署、不需要任何仓库密钥（gitleaks 用的是 Actions 自带的 GITHUB_TOKEN）。
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Build and test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+
+  secrets:
+    name: Secret scan (gitleaks)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      # PR 事件下 gitleaks-action 要读该 PR 的提交列表
+      pull-requests: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # 完整历史：gitleaks 扫的是提交，不只是当前文件
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

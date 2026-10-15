@@ -1,0 +1,20 @@
+node_modules
+dist
+.wrangler
+.dev.vars
+# 真实部署配置（KV id / 主人邮箱 / 域名）：从 wrangler.example.toml 复制，不入库
+wrangler.toml
+*.log
+.DS_Store
+# 只忽略体量大的设计工具产物；PORTING.md（store 契约，CLAUDE.md 要求随 store 一起改）要入库
+.reference/prototype.html
+.reference/sections/
+.keys
+# curl 校验脚本写出的 cookie 罐里是一枚可用的主人会话令牌，绝不能提交
+c.txt
+# 生产 KV / R2 的本地备份（含宾客数据），绝不入库
+backup/
+# Wisteria Ink 主题的插画：作品授权不明确，公开仓库不附带。想用这个主题就把你自己的插画放到这个路径
+# （竖版，约 1200×1691 的比例；中央要留一块浅色空白、装饰只放四周 —— 文字和按钮以深橄榄色从约 23% 高处起、
+# 左 13% 右 9% 之间叠在图上）；缺图时 Wisteria 卡片显示纯纸色底，不影响其它主题（默认主题 Garden 不需要插画）
+public/themes/wisteria.webp

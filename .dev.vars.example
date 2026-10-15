@@ -1,0 +1,11 @@
+# 本地开发密钥/变量（复制为 .dev.vars 使用；.dev.vars 不入库）
+# HMAC 签名密钥：会话 cookie 与邀请链接都靠它签名，缺了整站登录不了（fail-closed）
+TOKEN_SECRET=dev-secret-change-me
+# 邮件模式：console=打印到控制台（验证码同时以 devCode 回传，便于本地/自动化测试），resend=真实发送
+EMAIL_MODE=console
+# 站点基址（邀请邮件里的链接用）
+PUBLIC_BASE_URL=http://localhost:8788
+# Resend API Key（EMAIL_MODE=resend 时必填）
+RESEND_API_KEY=
+# 主人邮箱（可选）：覆盖 wrangler.toml 的 HOST_EMAILS，本地用占位邮箱登录即可（验证码走 devCode）
+HOST_EMAILS=host@example.com

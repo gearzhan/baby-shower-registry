@@ -1,0 +1,28 @@
+# 复制为 wrangler.toml 再填真实值：cp wrangler.example.toml wrangler.toml
+# wrangler.toml 不入库 —— 里面是你的 KV id、主人邮箱、发信地址、站点域名。
+name = "babyshower"
+compatibility_date = "2024-12-30"
+pages_build_output_dir = "dist"
+
+# KV：结构化数据库（event / design / config / guests / items / rsvp:* / claim:* / code:*）
+# 本地 wrangler pages dev 用 Miniflare 模拟，任意 id 都能跑；部署前换成
+# `npx wrangler kv namespace create BS_KV` 输出的真实 id
+[[kv_namespaces]]
+binding = "BS_KV"
+id = "00000000000000000000000000000000"
+
+# R2：媒体存储（背景图/视频、礼物图片）
+[[r2_buckets]]
+binding = "BS_R2"
+bucket_name = "babyshower-media"
+
+# 生产变量；本地由 .dev.vars 覆盖（EMAIL_MODE=console / PUBLIC_BASE_URL / 密钥）
+# `wrangler pages deploy` 会用这里的值覆盖面板里的同名变量，所以改这里，不要改面板。
+[vars]
+EMAIL_MODE = "resend"
+# 后台的唯一钥匙：邮箱在这里的宾客即为主人（逗号分隔）。主人会被自动加进宾客名单，不会被锁在门外。
+HOST_EMAILS = "host@example.com,cohost@example.com"
+# 必须是 Resend 上已验证域名下的地址
+RESEND_FROM = "Alex & Sam <invites@example.com>"
+# 每封邀请链接的前缀
+PUBLIC_BASE_URL = "https://example.com"
