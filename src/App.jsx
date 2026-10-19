@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router';
 import { useStore } from './store.jsx';
 import Landing from './pages/Landing.jsx';
 import Invitation from './pages/Invitation.jsx';

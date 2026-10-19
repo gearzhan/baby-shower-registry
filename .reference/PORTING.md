@@ -15,7 +15,7 @@ You are porting slices of a design-tool prototype (`.dc.html`) into React functi
 | `<sc-if value="{{ cond }}">…</sc-if>` | `{cond && (<>…</>)}` |
 | `<sc-for list="{{ arr }}" as="x">…</sc-for>` | `{arr.map((x) => (<Fragment key={x.id}>…</Fragment>))}` — always set a `key`. |
 | `value="{{ x }}" onChange="{{ h }}"` on input | controlled: `value={x} onChange={(e) => h(e.currentTarget.value)}` (the store setters take the value directly, not the event). |
-| `href="#/"` / `href="#/registry"` / `href="#/admin"` | React Router: `import { Link } from 'react-router-dom'` → `<Link to="/">`, `<Link to="/registry">`, `<Link to="/admin">`. |
+| `href="#/"` / `href="#/registry"` / `href="#/admin"` | React Router: `import { Link } from 'react-router'` → `<Link to="/">`, `<Link to="/registry">`, `<Link to="/admin">`. |
 | `{{ bgMediaEl }}` | `{bgMediaEl}` (it's a React node or null). |
 | attributes `inputMode`, `maxLength`, `autoPlay`, `playsInline`, `crossorigin` | React camelCase: `inputMode`, `maxLength`, `autoPlay`, `playsInline`, `crossOrigin`. |
 

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router';
 import { useStore } from '../store.jsx';
 import { Hover, FocusInput } from '../components/ui.jsx';
 import Envelope from '../components/Envelope.jsx';

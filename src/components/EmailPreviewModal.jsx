@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { useStore } from '../store.jsx';
 import { Hover, useEscClose } from './ui.jsx';
 import Envelope from './Envelope.jsx';

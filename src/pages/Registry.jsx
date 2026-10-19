@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router';
 import { useStore } from '../store.jsx';
 import { groupByStore } from '../util.js';
 import { Hover } from '../components/ui.jsx';

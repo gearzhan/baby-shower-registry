@@ -51,6 +51,9 @@ always puts them on the roster, so a fresh KV is never locked out.
 - `components/Envelope.jsx` — the envelope animation, shared by the Landing page and the admin email preview.
 - Path routing (`/`, `/registry`, `/admin`). `App.jsx` gates them: `/` renders Landing when signed out,
   `RequireGuest` bounces `/registry`, `RequireHost` bounces `/admin` (server-side 403 is the real defence).
+  React Router v7 (`react-router`, not `react-router-dom`). **Keep `<BrowserRouter useTransitions={false}>`** in
+  `main.jsx`: with v7's default transitions, signing out on `/registry` rendered `RequireGuest` before the path
+  changed and left a `state.from` that sent the next person to sign in on that tab to `/registry`.
 
 **Backend** (`functions/`, Pages Functions, file-based routing)
 - `lib/kv.js` — KV access + **seed-as-fallback** (`seed-data.js`, generic demo data only): reads return the seed

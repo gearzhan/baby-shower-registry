@@ -52,7 +52,7 @@ in as the demo host — the "photo or video slot" hint in the empty arch is show
 
 ## Quick start (local)
 
-You need Node.js 22 or newer. No Cloudflare account is needed to run it locally — `wrangler pages dev` simulates
+You need Node.js 22.12 or newer. No Cloudflare account is needed to run it locally — `wrangler pages dev` simulates
 KV and R2 on your machine.
 
 ```bash

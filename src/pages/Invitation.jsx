@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { useStore } from '../store.jsx';
 import { Hover } from '../components/ui.jsx';
 import { FONT } from '../theme.js';
